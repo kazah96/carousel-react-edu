@@ -1,0 +1,25 @@
+.container {
+    position: relative;
+    display: block;
+    width: 500px;
+    height: 200px;
+    overflow: hidden; 
+}
+
+.content{
+    text-align: center;
+}
+
+.div1 {
+    border: 2px rgb(131, 168, 114) solid;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.div2 {
+    background-color: darksalmon;
+}
+
+.div3 {
+    background-color: lightpink;
+}

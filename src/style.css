@@ -1,0 +1,51 @@
+ :root {
+    --element-height: 0;
+    --element-width: 0;
+    
+    --transition-speed: 1s;
+
+    --transition-initial-x: 0;
+    --transition-initial-y: 0;
+
+    --transition-direction-x: 200px;
+    --transition-direction-y: 0;
+
+    --initial-position-x: 200px;
+    --initial-position-y: 0;
+  }
+
+.element {
+    position: absolute;
+    height: var(--element-height);
+    width: var(--element-width);
+}
+
+.center-element {
+    top: 0;
+    left: 0;
+}
+
+.next-element {
+    top: var(--initial-position-y);
+    left: var(--initial-position-x)
+}
+
+.pusher {
+    animation: in var(--transition-speed) ease-out; 
+}
+
+.hidden-element{
+    display: none;
+}
+
+@keyframes in{   
+    0% {     
+       transform: translateX(var(--transition-initial-x)) translateY(var(--transition-initial-y));
+    }   
+
+    100% {
+        transform: translateX(var(--transition-direction-x)) translateY(var(--transition-direction-y));
+     }
+  }
+
+  

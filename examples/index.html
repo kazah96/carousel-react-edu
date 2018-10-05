@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../src/style.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container" id="cont">
+        <div class="div1 content">
+                <p>Метод <code>shift</code> удаляет элемент по нулевому индексу, сдвигает значения по последовательным индексам вниз, а затем возвращает удалённое значение. Если свойство <a href="/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/length" title="Length свойство объекта, который является экземпляром вида Array&nbsp;, устанавливает или возвращает число элементов в этом массиве. Значение безнаковое 32&nbsp;битное целое число, которое всегда численно больше чем самый наибольший индекс в массиве."><code>length</code></a> массива равно 0, вернётся значение <a href="/ru/docs/Web/JavaScript/Reference/Global_Objects/undefined" title="Значение глобального свойства undefined представляет значение undefined. Это одно из примитивных значений JavaScript."><code>undefined</code></a>.</p>
+        </div>
+        <div class="div2 content">
+            <h2> Тут контентик</h2>
+        </div>
+        <div class="div3 content">
+            <h2> Ещё какой-то контентик</h2>
+        </div>
+        <img src="img1.jpg">
+    </div>
+</body>
+
+<script type="module">
+    import Carousel from '../src/index.js';
+    let car = new Carousel("cont");
+</script>
+
+</html>
