@@ -10,7 +10,6 @@
     --transition-direction-x: 0;
     --transition-direction-y: 0;
 
-    --initial-position-x: 0;
     --initial-position-y: 0;
   }
 
@@ -47,7 +46,7 @@
     }   
 
     100% {
-        transform: translateX(var(--transition-direction-x)) translateY(var(--transition-direction-y));
+        transform: translateX(calc(var(--transition-direction-x) *1px)) translateY(var(--transition-direction-y));
      }
   }
 

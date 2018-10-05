@@ -11,8 +11,8 @@ function setCssElementInitPosition(position = { x: -200, y: 0 }) {
 }
 
 function setCssTransitionPosition(transition = { x: 200, y: 0 }) {
-    setCssVariable(`--transition-direction-x`, `${transition.x}px`);
-    setCssVariable(`--transition-direction-y`, `${transition.y}px`);
+    setCssVariable(`--transition-direction-x`, `${transition.x}`);
+    setCssVariable(`--transition-direction-y`, `${transition.y}`);
 }
 
 function setCssElementSize(size = { width: 50, height: 50 }) {
