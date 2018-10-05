@@ -20,11 +20,11 @@ function setCssElementSize(size = { width: 50, height: 50 }) {
     setCssVariable(`--element-height`, `${size.height}px`);
 }
 
-export default function (containerId, config = { direction: 2, time: 500 }) {
+function Carousel(containerId, config = { direction: 2, time: 5000, auto:false, interval: 2000 }) {
     const hiddenItemClass = "hidden-element";
-    const currentElementClass = "center-element"
     const pusherClass = "pusher";
-    const { time, direction } = config;
+    const nextElementClass = "next-element";
+    const { time, direction, interval , auto} = config;
 
     this.inTransition = false;
 
@@ -104,20 +104,19 @@ export default function (containerId, config = { direction: 2, time: 500 }) {
 
         this.inTransition = true;
 
-        nextElement.classList.add(pusherClass);
-        nextElement.classList.add("next-element");
         nextElement.classList.remove(hiddenItemClass);
-
+        nextElement.classList.add(pusherClass);
+        nextElement.classList.add(nextElementClass);
         this.currentElement.classList.add(pusherClass);
 
         setTimeout(o => {
-            nextElement.classList.remove(pusherClass);
-            nextElement.classList.add(currentElementClass);
-            this.currentElement.classList.remove(pusherClass);
-            this.currentElement.classList.remove(currentElementClass);
             this.currentElement.classList.add(hiddenItemClass);
+
+            this.currentElement.classList.remove(pusherClass);            
+            nextElement.classList.remove(pusherClass);
+
             this.currentElement = nextElement;
-            this.currentElement.classList.remove("next-element");
+            this.currentElement.classList.remove(nextElementClass);
             this.inTransition = false;
         }, time);
 
@@ -134,14 +133,14 @@ export default function (containerId, config = { direction: 2, time: 500 }) {
 
     this.setDirection(0);
     this.currentElement = this.array[0];
-    this.currentElement.classList.add(currentElementClass);
     this.currentElement.classList.remove("next-element");
-    this.currentElement.classList.toggle(hiddenItemClass);
-    
-    setInterval(() => {
-        if(!this.inTransition)
-            this.rotate(direction, this.getNextElement());
-    }, 2000);
+    this.currentElement.classList.remove(hiddenItemClass);
+
+    if(auto == true)
+        setInterval(() => {
+            if(!this.inTransition)
+                this.rotate(direction, this.getNextElement());
+        }, interval);
 
     container.addEventListener('click', o => {
         if (this.inTransition === false)
