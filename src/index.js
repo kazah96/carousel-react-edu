@@ -20,16 +20,17 @@ function setCssElementSize(size = { width: 50, height: 50 }) {
     setCssVariable(`--element-height`, `${size.height}px`);
 }
 
-function Carousel(containerId, config = { direction: 2, time: 5000, auto:false, interval: 2000 }) {
+function Carousel(containerId, config = { direction: 2, time: 5000, auto: false, interval: 2000 }) {
     const hiddenItemClass = "hidden-element";
     const pusherClass = "pusher";
     const nextElementClass = "next-element";
-    const { time, direction, interval , auto} = config;
+    const { time, direction, interval, auto } = config;
 
     this.inTransition = false;
 
     const container = document.getElementById(containerId);
     if (container == null) throw new Error("Container not found");
+    container.classList.add("carousel-container");
 
     let { width, height } = getComputedStyle(container);
 
@@ -112,7 +113,7 @@ function Carousel(containerId, config = { direction: 2, time: 5000, auto:false, 
         setTimeout(o => {
             this.currentElement.classList.add(hiddenItemClass);
 
-            this.currentElement.classList.remove(pusherClass);            
+            this.currentElement.classList.remove(pusherClass);
             nextElement.classList.remove(pusherClass);
 
             this.currentElement = nextElement;
@@ -122,7 +123,7 @@ function Carousel(containerId, config = { direction: 2, time: 5000, auto:false, 
 
     };
 
-   
+
     this.array = Array.from(container.children);
 
     this.array.forEach(item => {
@@ -136,16 +137,16 @@ function Carousel(containerId, config = { direction: 2, time: 5000, auto:false, 
     this.currentElement.classList.remove("next-element");
     this.currentElement.classList.remove(hiddenItemClass);
 
-    if(auto == true)
+    if (auto == true)
         setInterval(() => {
-            if(!this.inTransition)
+            if (!this.inTransition)
                 this.rotate(direction, this.getNextElement());
         }, interval);
 
     container.addEventListener('click', o => {
         if (this.inTransition === false)
             this.rotate(direction, this.getNextElement());
-        }
+    }
     );
 
 }

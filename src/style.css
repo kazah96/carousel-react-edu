@@ -14,6 +14,12 @@
     --initial-position-y: 0;
   }
 
+.carousel-container {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
 .element {
     position: absolute;
     height: var(--element-height);
