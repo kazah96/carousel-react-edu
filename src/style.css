@@ -1,3 +1,7 @@
+:root{
+    --react-edu-button-color: #b21af8;
+}
+
 .react-edu-carousel__container {
     position: relative;
     display: block;
@@ -13,8 +17,38 @@
 }
 
 .react-edu-carousel__button{
-    width: 20px;
-    height: 20px;
-    background: blue;
-    position: absolute;
+        position: absolute;
+        opacity: 0.4;
+        width: 40px;
+        height: 40px;
+        border-style: solid;
+        box-sizing: border-box;
+        cursor: pointer;
+       
+}
+
+.react-edu-carousel__button-right {
+    border-width: 20px 0px 20px 20px;
+    border-color: transparent transparent transparent  var(--react-edu-button-color);
+}
+.react-edu-carousel__button-left {
+    border-width: 20px 20px 20px 0px;
+    border-color: transparent var(--react-edu-button-color) transparent transparent;
+}
+
+.react-edu-carousel__button-play {
+    border-style: solid;
+    border-width: 20px 0px 20px 40px;
+    border-color: transparent transparent transparent var(--react-edu-button-color);
+}
+
+.react-edu-carousel__button-pause {
+    border-style: double;
+    border-width: 0px 0px 0px 40px;
+    border-color: transparent transparent transparent var(--react-edu-button-color);
+}
+
+.react-edu-carousel__button:hover{
+    transition: 0.1s ease;
+    opacity: 1;
 }
