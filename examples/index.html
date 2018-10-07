@@ -24,27 +24,21 @@
 
     </div>
 
-    <div class="container" id="cont3">
-
-            <img src="https://pp.userapi.com/c850732/v850732327/17a0f/9ZWFuPxfc8A.jpg" />
-    
-            <div class="div2 content" id="2">
-                <p> Чтобы ты не делал - делай это уверенно.<br> Не думая о том что скажут люди.</p>
-            </div> <img src="img1.jpg" />
-            <div class="div3 content" id="3">
-                <p>Как бы мент не газовал,<br> Миром правит криминал.</p>
-            </div>
-    
-        </div>
-
 </body>
 
 <script src="../src/index.js"></script>
 
 
 <script>
-    let carousel = new Carousel("cont", { auto: false, interval: 2000, speed: 600, direction: 1, timingFunction: "ease-out" });
-    let carousel2 = new Carousel("cont3", { auto: false, interval: 500, speed: 300, direction: 0, timingFunction: "ease-out" });
+    let carousel = new Carousel("cont",
+        {
+            auto: true,
+            interval: 2000,
+            speed: 300,
+            direction: 2, 
+            timingFunction: "ease-out",
+            showButtons: true
+        });
 
 </script>
 

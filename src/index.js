@@ -69,7 +69,7 @@ function mouseHandler(contId, onSwipe) {
 
 // класик для обработки свайпа
 function touchHandler(contId, onSwipe) {
-  const swipeDistance = 200;
+  const swipeDistance = 100;
   const container = document.getElementById(contId);
 
   const startPoint = {};
@@ -159,6 +159,7 @@ function addButton(containerId, element, position = { x: 0, y: 0 }, onPress) {
   setElementPosition(element, position.x, position.y);
 
   element.addEventListener('click', onPress);
+  element.addEventListener('touchstart', onPress);
 
   container.appendChild(element);
 }
@@ -273,7 +274,10 @@ function Carousel(containerId, config = {}) {
     ? config.interval : config.speed || defaultIterval;
 
   this.array = [];
+
   this.inTransition = false;
+
+  this.showButtons = config.showButtons || false;
 
   const container = document.getElementById(containerId);
   if (container == null) throw new Error('Container not found');
@@ -343,9 +347,11 @@ function Carousel(containerId, config = {}) {
 
   keyboardHandler(direction => this.nextSlide(direction));
 
-  generateButtonControl(containerId,
-    { x: this.containerWidth / 2 - 100, y: this.containerHeight - 70 }, {
-      nextSlide: this.nextSlide,
-      playPause: () => { this.auto = !this.auto; },
-    });
+  if (this.showButtons) {
+    generateButtonControl(containerId,
+      { x: this.containerWidth / 2 - 100, y: this.containerHeight - 70 }, {
+        nextSlide: this.nextSlide,
+        playPause: () => { this.auto = !this.auto; },
+      });
+  }
 }
