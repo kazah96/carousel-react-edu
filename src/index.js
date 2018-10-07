@@ -207,6 +207,7 @@ function moveSlides(
 
   let t = getComputedStyle(nextElement).left; // грязный хак
   t = getComputedStyle(nextElement).top; // грязный хак
+  t.trim();
 
   setElementTransition(nextElement, params.speed, params.timingFunction);
   setElementTransition(currentElement, params.speed, params.timingFunction);
@@ -258,11 +259,18 @@ function nextCoords(direction, width, height) {
 }
 
 function Carousel(containerId, config = {}) {
-  this.direction = (config.direction < 4 && config.direction >= 0) ? config.direction : defaultDirection;
-  this.speed = config.speed > 50 ? config.speed : defaultSpeed;
+  this.direction = (config.direction < 4 && config.direction >= 0)
+    ? config.direction : defaultDirection;
+
+  this.speed = config.speed > 50
+    ? config.speed : defaultSpeed;
+
   this.timingFunction = config.timingFunction || defaultTimingFunction;
+
   this.auto = config.auto || false;
-  this.interval = (config.interval > config.speed) ? config.interval : config.speed || defaultIterval;
+
+  this.interval = (config.interval > config.speed)
+    ? config.interval : config.speed || defaultIterval;
 
   this.array = [];
   this.inTransition = false;
@@ -273,8 +281,8 @@ function Carousel(containerId, config = {}) {
 
   const { width, height } = getComputedStyle(container);
 
-  this.containerWidth = parseInt(width);
-  this.containerHeight = parseInt(height);
+  this.containerWidth = parseInt(width, 10);
+  this.containerHeight = parseInt(height, 10);
 
   this.getNextElement = () => {
     const t = this.array.pop();
@@ -289,11 +297,11 @@ function Carousel(containerId, config = {}) {
   };
 
 
-  this.nextSlide = (direction) => {
+  this.nextSlide = (dir) => {
     if (this.inTransition) return;
-    if (direction === undefined) { direction = this.direction; }
+    const direction = dir === undefined ? this.direction : dir;
 
-    const config = {
+    const cfg = {
       ...nextCoords(direction, this.containerWidth, this.containerHeight),
       timingFunction: this.timingFunction,
       speed: this.speed,
@@ -301,12 +309,12 @@ function Carousel(containerId, config = {}) {
 
     this.inTransition = true;
     if (direction === DIRECTION_LEFT || direction === DIRECTION_UP) {
-      moveSlides(config, this.array[0],
-        this.getNextElement(), onFinish = o => this.inTransition = false);
+      moveSlides(cfg, this.array[0],
+        this.getNextElement(), () => { this.inTransition = false; });
     } else {
       const t = this.getPreviousElement();
-      moveSlides(config, t,
-        this.array[0], onFinish = o => this.inTransition = false);
+      moveSlides(cfg, t,
+        this.array[0], () => { this.inTransition = false; });
     }
   };
 
@@ -335,8 +343,9 @@ function Carousel(containerId, config = {}) {
 
   keyboardHandler(direction => this.nextSlide(direction));
 
-  generateButtonControl(containerId, { x: this.containerWidth / 2 - 100, y: this.containerHeight - 70 }, {
-    nextSlide: this.nextSlide,
-    playPause: () => this.auto = !this.auto,
-  });
+  generateButtonControl(containerId,
+    { x: this.containerWidth / 2 - 100, y: this.containerHeight - 70 }, {
+      nextSlide: this.nextSlide,
+      playPause: () => { this.auto = !this.auto; },
+    });
 }
