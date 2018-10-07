@@ -1,53 +1,16 @@
- :root {
-    --element-height: 0;
-    --element-width: 0;
-    
-    --transition-speed: 0s;
-
-    --transition-initial-x: 0;
-    --transition-initial-y: 0;
-
-    --transition-direction-x: 0;
-    --transition-direction-y: 0;
-
-    --initial-position-y: 0;
-  }
-
-.carousel-container {
+.react-edu-carousel__container {
     position: relative;
     display: block;
     overflow: hidden;
 }
 
-.element {
+.react-edu-carousel__element {
     position: absolute;
-    height: var(--element-height);
-    width: var(--element-width);
+    height: 100%;
+    width: 100%;
     top: 0;
     left: 0;
 }
 
-.next-element {
-    top: var(--initial-position-y);
-    left: var(--initial-position-x)
+.react-edu-carousel__button{
 }
-
-.pusher {
-    animation: in var(--transition-speed) ease-out; 
-}
-
-.hidden-element{
-    display: none;
-}
-
-@keyframes in{   
-    0% {     
-       transform: translateX(var(--transition-initial-x)) translateY(var(--transition-initial-y));
-    }   
-
-    100% {
-        transform: translateX(calc(var(--transition-direction-x) *1px)) translateY(var(--transition-direction-y));
-     }
-  }
-
-  

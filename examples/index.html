@@ -12,24 +12,30 @@
 
 <body>
     <div class="container" id="cont">
-        <div class="div1 content">
-                <p>Метод <code>shift</code> удаляет элемент по нулевому индексу, сдвигает значения по последовательным индексам вниз, а затем возвращает удалённое значение. Если свойство <a href="/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/length" title="Length свойство объекта, который является экземпляром вида Array&nbsp;, устанавливает или возвращает число элементов в этом массиве. Значение безнаковое 32&nbsp;битное целое число, которое всегда численно больше чем самый наибольший индекс в массиве."><code>length</code></a> массива равно 0, вернётся значение <a href="/ru/docs/Web/JavaScript/Reference/Global_Objects/undefined" title="Значение глобального свойства undefined представляет значение undefined. Это одно из примитивных значений JavaScript."><code>undefined</code></a>.</p>
+
+        <img src="https://pp.userapi.com/c850732/v850732327/17a0f/9ZWFuPxfc8A.jpg" />
+
+        <div class="div2 content" id="2">
+            <p> Чтобы ты не делал - делай это уверенно.<br> Не думая о том что скажут люди.</p>
+        </div> <img src="img1.jpg" />
+        <div class="div3 content" id="3">
+            <p>Как бы мент не газовал,<br> Миром правит криминал.</p>
+
+
+
         </div>
-        <div class="div2 content">
-            <h2> Тут контентик</h2>
-        </div>
-        <div class="div3 content">
-            <h2> Ещё какой-то контентик</h2>
-        </div>
-        <img src="img1.jpg">
+
     </div>
+
 </body>
 
 <script src="../src/index.js"></script>
 
+
 <script>
-    let carousel = new Carousel("cont", {time : 500, direction: 0, auto: true, interval: 1000});
-    console.log(carousel);
+    let carousel = new Carousel("cont", { auto: true, speed: 600, direction: 1, timingFunction: "ease-out" });
+    let carousel2 = new Carousel("cont3", { auto: false, speed: 1000, direction: 0, timingFunction: "ease-out" });
+
 </script>
 
 </html>
