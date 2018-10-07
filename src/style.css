@@ -13,4 +13,9 @@
 }
 
 .react-edu-carousel__button{
+    width: 20px;
+    height: 20px;
+    background: blue;
+    position: absolute;
+
 }

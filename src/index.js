@@ -64,17 +64,7 @@ function touchHandler(contId, onSwipe) {
     }
 }
 
-function addButtons(containerId, onPress) {
-    const container = document.getElementById(containerId);
 
-    const button = document.createElement("div");
-
-    button.classList.add("");
-    button.addEventListener('click', onPress);
-
-    container.appendChild(button);
-
-}
 
 // класик для обработки клавы
 function keyboardHandler(onPress) {
@@ -116,6 +106,15 @@ function setElementPosition(element, x, y) {
     element.style.left = x + 'px';
     element.style.top = y + 'px';
 
+}
+
+function addButton(containerId, element, position = { x: 0, y: 0 }, onPress) {
+    const container = document.getElementById(containerId);
+    setElementPosition(element, position.x, position.y);
+
+    element.addEventListener('click', onPress);
+
+    container.appendChild(element);
 }
 
 // двигаем слайды
@@ -218,11 +217,13 @@ function Carousel(containerId, config = {}) {
         return t;
     }
 
+
     this.nextSlide = (direction) => {
+        if (this.inTransition) return;
         let config = {
             ...nextCoords(direction, this.containerWidth, this.containerHeight),
-            timingFunction : this.timingFunction,
-            speed : this.speed
+            timingFunction: this.timingFunction,
+            speed: this.speed
         }
 
         this.inTransition = true;
@@ -249,12 +250,12 @@ function Carousel(containerId, config = {}) {
     this.array[0].style.left = 0;
     this.array[0].style.top = 0;
 
-    if (this.auto === true)
-        setInterval(() => {
-            if (!this.inTransition) {
-                this.nextSlide(this.direction);
-            }
-        }, this.interval);
+
+    setInterval(() => {
+        if (!this.inTransition && this.auto) {
+            this.nextSlide(this.direction);
+        }
+    }, this.interval);
 
     touchHandler(containerId, direction => {
         if (!this.inTransition)
@@ -265,6 +266,5 @@ function Carousel(containerId, config = {}) {
         if (!this.inTransition)
             this.nextSlide(direction)
     });
-
 
 }
