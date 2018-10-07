@@ -12,6 +12,69 @@ const defaultIterval = 2000;
 const defaultTimingFunction = "ease-in-out";
 const defaultDirection = DIRECTION_RIGHT;
 
+
+function mouseDrag(contId, onSwipe) {
+    const swipeDistance = 100;
+    let container = document.getElementById(contId);
+
+    let startPoint = {};
+
+    this.mouseActive = false;
+
+
+    container.addEventListener('mousedown', function (event) {
+
+        this.mouseActive = true;
+        event.preventDefault();
+        event.stopPropagation();
+
+        startPoint.x = event.pageX;
+        startPoint.y = event.pageY;
+
+    }, false);
+
+    container.addEventListener('mouseup', function (event) {
+        this.mouseActive = false;
+    });
+
+    container.addEventListener('mouseout', function (event) {
+        this.mouseActive = false;
+    });
+
+
+    container.addEventListener('mousemove', function (event) {
+        if (!this.mouseActive) return;
+
+        event.preventDefault();
+        event.stopPropagation();
+
+
+        let newPoint = {};
+        newPoint.pageX = event.pageX;
+        newPoint.pageY = event.pageY;
+        let offsetX = newPoint.pageX - startPoint.x;
+        let offsetY = newPoint.pageY - startPoint.y;
+
+        if (Math.abs(offsetX) > swipeDistance) {
+            if (offsetX > 0) { onSwipe(DIRECTION_RIGHT); }
+            if (offsetX < 0) { onSwipe(DIRECTION_LEFT); }
+
+
+            startPoint.x = newPoint.pageX;
+            startPoint.y = newPoint.pageY;
+        }
+        if (Math.abs(offsetY) > swipeDistance) {
+            if (offsetY < 0) { onSwipe(DIRECTION_UP); }
+            if (offsetY > 0) { onSwipe(DIRECTION_DOWN); }
+
+            startPoint.x = newPoint.pageX;
+            startPoint.y = newPoint.pageY;
+
+        }
+
+    }, false);
+}
+
 //класик для обработки свайпа
 function touchHandler(contId, onSwipe) {
     const swipeDistance = 200;
@@ -257,14 +320,14 @@ function Carousel(containerId, config = {}) {
         }
     }, this.interval);
 
-    touchHandler(containerId, direction => {
-        if (!this.inTransition)
-            this.nextSlide(direction)
-    });
+    touchHandler(containerId, direction =>
+        this.nextSlide(direction)
+    );
 
-    keyboardHandler(direction => {
-        if (!this.inTransition)
-            this.nextSlide(direction)
-    });
+    mouseDrag(containerId, direction => this.nextSlide(direction));
+
+    keyboardHandler(direction =>
+        this.nextSlide(direction)
+    );
 
 }
