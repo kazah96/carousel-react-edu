@@ -164,7 +164,7 @@ function addButton(containerId, element, position = { x: 0, y: 0 }, onPress) {
   container.appendChild(element);
 }
 
-function generateButtonControl(containerId, position = { x: 0, y: 0 }, onClick = {}) {
+function generateButtonControl(containerId, position = { x: 0, y: 0 }, onClick = {}, auto = false) {
   const offset = 70;
   const { x, y } = position;
 
@@ -178,10 +178,14 @@ function generateButtonControl(containerId, position = { x: 0, y: 0 }, onClick =
 
   const playPauseButton = document.createElement('div');
   playPauseButton.classList.add(buttonClass);
-  playPauseButton.classList.add(`${buttonClass}-play`);
+
+  playPauseButton.classList.add(
+    auto === false ? `${buttonClass}-play` : `${buttonClass}-pause`,
+  );
 
   addButton(containerId, leftButton, { x, y }, () => onClick.nextSlide(0));
   addButton(containerId, rightButton, { x: x + offset * 2, y }, () => onClick.nextSlide(2));
+
   addButton(containerId, playPauseButton, { x: x + offset, y }, () => {
     playPauseButton.classList.toggle(`${buttonClass}-play`);
     playPauseButton.classList.toggle(`${buttonClass}-pause`);
@@ -352,6 +356,6 @@ function Carousel(containerId, config = {}) {
       { x: this.containerWidth / 2 - 100, y: this.containerHeight - 70 }, {
         nextSlide: this.nextSlide,
         playPause: () => { this.auto = !this.auto; },
-      });
+      }, this.auto);
   }
 }
