@@ -5,6 +5,10 @@
     
 }
 
+.img {
+    filter: saturate(0.2) сontrast(0.2) blur(10px);
+}
+
 .content{
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;

@@ -1,5 +1,6 @@
 :root{
-    --react-edu-button-color: #b21af8;
+    --react-edu-button-play-color: #d33b3b;
+    --react-edu-button-color: rgb(53, 53, 53);
 }
 
 .react-edu-carousel__container {
@@ -39,13 +40,13 @@
 .react-edu-carousel__button-play {
     border-style: solid;
     border-width: 20px 0px 20px 40px;
-    border-color: transparent transparent transparent var(--react-edu-button-color);
+    border-color: transparent transparent transparent var(--react-edu-button-play-color);
 }
 
 .react-edu-carousel__button-pause {
     border-style: double;
     border-width: 0px 0px 0px 40px;
-    border-color: transparent transparent transparent var(--react-edu-button-color);
+    border-color: transparent transparent transparent var(--react-edu-button-play-color);
 }
 
 .react-edu-carousel__button:hover{
