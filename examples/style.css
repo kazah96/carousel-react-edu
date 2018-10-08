@@ -5,6 +5,10 @@
     
 }
 
+.container img {
+    user-select: none;
+}
+
 .img {
     filter: saturate(0.2) сontrast(0.2) blur(10px);
 }
