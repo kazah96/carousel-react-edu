@@ -2,7 +2,7 @@ import Carousel from 'react-edu-carousel';
 
 const containerId = 'cont';
 
-Carousel(containerId,
+const f = new Carousel(containerId, // eslint-disable-line 
   {
     auto: true,
     interval: 2000,
