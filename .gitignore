@@ -1,7 +1,8 @@
 /node_modules/*
 /package*
-.eslintrc.js
-webpack.config.js
 src/node_modules
 carousel/node_modules
+carousel/package-lock.json
+example/package-lock.json
 examples/node_modules
+*package-lock.json

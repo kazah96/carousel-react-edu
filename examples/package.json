@@ -9,7 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "webpack": "^4.20.2",
-    "@dqcarousel": "0.0.3"
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@dqcarousel": "0.0.3",
+    "babel-loader": "^8.0.4",
+    "react-edu-carousel": "^1.0.1",
+    "webpack": "^4.20.2"
   }
 }
