@@ -1,0 +1,42 @@
+{
+  "name": "react-edu-carousel",
+  "version": "1.0.0",
+  "description": "fwe",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.4",
+    "mini-css-extract-plugin": "^0.4.4",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  },
+  "devDependencies": {
+    "css-loader": "^1.0.0",
+    "eslint": "^5.6.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "webpack-dev-server": "^3.1.9"
+  },
+  "scripts": {
+    "test": "test",
+    "start": "webpack-dev-server --host 0.0.0.0 --config webpack.config.js",
+    "build": "webpack --config webpack.config.js"
+  },
+  "devServer": {
+    "index": ".example/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kazah96/carousel-react-edu.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kazah96/carousel-react-edu/issues"
+  },
+  "homepage": "https://github.com/kazah96/carousel-react-edu#readme"
+}

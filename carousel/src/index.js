@@ -1,3 +1,5 @@
+import style from './style.css'; // eslint-disable-line
+
 const elementClass = 'react-edu-carousel__element';
 const containerClass = 'react-edu-carousel__container';
 const buttonClass = 'react-edu-carousel__button';
@@ -263,7 +265,7 @@ function nextCoords(direction, width, height) {
   return params;
 }
 
-function Carousel(containerId, config = {}) {
+export default function Carousel(containerId, config = {}) {
   this.direction = (config.direction < 4 && config.direction >= 0)
     ? config.direction : defaultDirection;
 
