@@ -1,7 +1,8 @@
-import Carousel from 'react-edu-carousel'
+import Carousel from '../../carousel/build/index'
+//import Carousel from 'react-edu-carousel'
 
+console.log(Carousel);
 const containerId = "cont";
-
 const carousel = new Carousel(containerId,
 {
     auto: true,
@@ -12,4 +13,4 @@ const carousel = new Carousel(containerId,
     showButtons: true
 });
 
-console.log("ASd")
+// console.log("ASd")

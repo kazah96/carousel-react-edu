@@ -1,0 +1,7 @@
+node_modules/
+src/
+.eslintrc.js
+package-lock.json
+style.css
+webpack.config.js
+build/*.map

@@ -1,0 +1,11 @@
+export const elementClass = 'react-edu-carousel__element';
+export const containerClass = 'react-edu-carousel__container';
+export const buttonClass = 'react-edu-carousel__button';
+export const DIRECTION_LEFT = 0;
+export const DIRECTION_RIGHT = 2;
+export const DIRECTION_UP = 1;
+export const DIRECTION_DOWN = 3;
+export const defaultSpeed = 500;
+export const defaultIterval = 2000;
+export const defaultTimingFunction = 'ease-in-out';
+export const defaultDirection = DIRECTION_RIGHT;
