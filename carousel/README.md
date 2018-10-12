@@ -3,7 +3,7 @@
 
 REACT-EDU-CAROUSEL - штука чтобы двигать картинки влево и даже вправо
 
-
+пше 
 ### КАК УСТАНОВИТЬ!
  
  Скачать пакет
@@ -18,7 +18,7 @@ import Carousel from 'react-edu-carousel'
 
 Добавить стили
 ```
-<link rel="stylesheet" href="react-edu-carousel/main.css">
+<link rel="stylesheet" href="node_modules/react-edu-carousel/build/main.css">
 ```
 
 Активировать карусельку

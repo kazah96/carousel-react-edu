@@ -86,44 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "../../../../Users/poque/AppData/Roaming/npm/node_modules/webpack/buildin/module.js":
-/*!***********************************!*\
-  !*** (webpack)/buildin/module.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = function (module) {
-  if (!module.webpackPolyfill) {
-    module.deprecate = function () {};
-
-    module.paths = []; // module.parent = undefined by default
-
-    if (!module.children) module.children = [];
-    Object.defineProperty(module, "loaded", {
-      enumerable: true,
-      get: function get() {
-        return module.l;
-      }
-    });
-    Object.defineProperty(module, "id", {
-      enumerable: true,
-      get: function get() {
-        return module.i;
-      }
-    });
-    module.webpackPolyfill = 1;
-  }
-
-  return module;
-};
-
-/***/ }),
-
-/***/ "../carousel/build/index.js":
-/*!**********************************!*\
-  !*** ../carousel/build/index.js ***!
-  \**********************************/
+/***/ "./node_modules/react-edu-carousel/build/index.js":
+/*!********************************************************!*\
+  !*** ./node_modules/react-edu-carousel/build/index.js ***!
+  \********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1133,7 +1099,41 @@ module.exports = function (module) {
     })
   );
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../Users/poque/AppData/Roaming/npm/node_modules/webpack/buildin/module.js */ "../../../../Users/poque/AppData/Roaming/npm/node_modules/webpack/buildin/module.js")(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
+
+/***/ }),
+
+/***/ "./node_modules/webpack/buildin/module.js":
+/*!***********************************!*\
+  !*** (webpack)/buildin/module.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function (module) {
+  if (!module.webpackPolyfill) {
+    module.deprecate = function () {};
+
+    module.paths = []; // module.parent = undefined by default
+
+    if (!module.children) module.children = [];
+    Object.defineProperty(module, "loaded", {
+      enumerable: true,
+      get: function get() {
+        return module.l;
+      }
+    });
+    Object.defineProperty(module, "id", {
+      enumerable: true,
+      get: function get() {
+        return module.i;
+      }
+    });
+    module.webpackPolyfill = 1;
+  }
+
+  return module;
+};
 
 /***/ }),
 
@@ -1146,18 +1146,16 @@ module.exports = function (module) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _carousel_build_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../carousel/build/index */ "../carousel/build/index.js");
-/* harmony import */ var _carousel_build_index__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_carousel_build_index__WEBPACK_IMPORTED_MODULE_0__);
- //import Carousel from 'react-edu-carousel'
+/* harmony import */ var react_edu_carousel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-edu-carousel */ "./node_modules/react-edu-carousel/build/index.js");
+/* harmony import */ var react_edu_carousel__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_edu_carousel__WEBPACK_IMPORTED_MODULE_0__);
 
-console.log(_carousel_build_index__WEBPACK_IMPORTED_MODULE_0___default.a);
-var containerId = "cont";
-var carousel = new _carousel_build_index__WEBPACK_IMPORTED_MODULE_0___default.a(containerId, {
+var containerId = 'cont';
+react_edu_carousel__WEBPACK_IMPORTED_MODULE_0___default()(containerId, {
   auto: true,
   interval: 2000,
   speed: 300,
   direction: 2,
-  timingFunction: "ease-out",
+  timingFunction: 'ease-out',
   showButtons: true
 }); // console.log("ASd")
 

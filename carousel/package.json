@@ -1,13 +1,13 @@
 {
   "name": "react-edu-carousel",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "BIBLIOTEQA SLAIDER!!",
   "main": "build/index.js",
   "directories": {
     "example": "examples"
   },
   "dependencies": {
-   
+
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -22,8 +22,7 @@
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9",
-    "eslint-loader": "^2.1.1",
-    "react-responsive-carousel": "^3.1.43"
+    "eslint-loader": "^2.1.1"
   },
   "scripts": {
     "test": "test",
